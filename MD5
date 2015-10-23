@@ -1,0 +1,14 @@
+155baf8891a3a46db80c3a1bf209e96f *DESCRIPTION
+d4e6e5ff58a92324999e00ccd8b00bdc *NAMESPACE
+b5b73d81c8eba7168af8d4677e675f5c *R/Functions_Rsurrogate.R
+d4331b18da5859d4f6434eebc1b924a2 *data/d_example.RData
+f7a9250e4e738d4184642c3412aeee18 *data/d_example_surv.RData
+415ef6c983dfdf21161c0836269aea8b *man/Kern.FUN.Rd
+82afa3c410848d7698269fd6552c4c47 *man/R.s.estimate.Rd
+32112c3a9d273321229acd38d8b662c0 *man/VTM.Rd
+ea668878cd6f95dc9ac042d6c55b5897 *man/d_example.Rd
+32f228bab28343b203cf6d91387f5fec *man/d_example_surv.Rd
+7ec2ff663afe8ed48c1761bb6a9ef768 *man/delta.estimate.Rd
+cc4ef1ea989fee37f7705f9670cd44fe *man/delta.s.estimate.Rd
+628d3d3df54c001809001bda11201e0a *man/fieller.ci.Rd
+ef7a52569602e756e8b09e30cb4eb0be *man/pred.smooth.Rd

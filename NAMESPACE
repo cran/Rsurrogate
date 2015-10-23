@@ -1,0 +1,3 @@
+importFrom(stats, bw.nrd, cov, dnorm, lm, quantile, rexp, sd, var, wilcox.test)
+
+exportPattern("^[[:alpha:]]+")
