@@ -24,11 +24,11 @@ numeric vector; the perturbed values for \eqn{\hat{\Delta}}, the treatment effec
 }
   \item{delta.s}{
 %%     ~~Describe \code{delta.s} here~~
-the residual treatment effect, \eqn{\Delta_S}, estimate, \eqn{\hat{\Delta}_S}
+the residual treatment effect, \eqn{\Delta_S}, estimate, \eqn{\hat{\Delta}_S}.
 }
   \item{delta}{
 %%     ~~Describe \code{delta} here~~
-the treatment effect,\eqn{\Delta} estimate, \eqn{\hat{\Delta}}
+the treatment effect, \eqn{\Delta}, estimate, \eqn{\hat{\Delta}}.
 }
 }
 \details{
@@ -50,7 +50,7 @@ Fieller, Edgar C. (1954). Some problems in interval estimation. Journal of the R
 
 Fieller, E. C. (1940). The biological standardization of insulin. Supplement to the Journal of the Royal Statistical Society, 1-64.
 
-Parast, L., McDermott, M., Tian, L. (2015). Robust estimation of the proportion of treatment effect explained by surrogate marker information. Statistics in medicine, to appear.
+Parast, L., McDermott, M., Tian, L. (2016). Robust estimation of the proportion of treatment effect explained by surrogate marker information. Statistics in Medicine, 35(10):1637-1653.
 }
 
 \author{

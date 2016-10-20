@@ -34,6 +34,7 @@ outcome in the treatment group
 %%     ~~Describe \code{weight} here~~
 weight
 }
+
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -52,7 +53,7 @@ expected outcome for each surrogate value in the control group
 }
 \references{
 %% ~put references to the literature/web site here ~
-Parast, L., McDermott, M., Tian, L. (2015). Robust estimation of the proportion of treatment effect explained by surrogate marker information. Statistics in medicine, to appear.
+Parast, L., McDermott, M., Tian, L. (2016). Robust estimation of the proportion of treatment effect explained by surrogate marker information. Statistics in medicine, 35(10):1637-1653.
 }
 \author{
 %%  ~~who you are~~
