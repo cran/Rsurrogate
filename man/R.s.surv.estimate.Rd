@@ -12,7 +12,7 @@ This function calculates the proportion of treatment effect on the primary outco
 \usage{
 R.s.surv.estimate(xone, xzero, deltaone, deltazero, sone, szero, t, 
 weight.perturb = NULL, landmark, extrapolate = FALSE, transform = FALSE, 
-conf.int = FALSE, var = FALSE, incremental.value = FALSE)
+conf.int = FALSE, var = FALSE, incremental.value = FALSE, approx = T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -68,13 +68,15 @@ TRUE or FALSE; indicates whether a 95\% confidence interval for delta is request
 }
   \item{var}{
 %%     ~~Describe \code{var} here~~
-TRUE or FALSE; indicates whether a variance estimate for delta is requested, default is FALSE.
+TRUE or FALSE; indicates whether a variance estimate is requested, default is FALSE.
 }
   \item{incremental.value}{
 %%     ~~Describe \code{var} here~~
 TRUE or FALSE; indicates whether the user would like to see the incremental value of the surrogate marker information, default is FALSE.
 }
-
+  \item{approx}{
+TRUE or FALSE indicating whether an approximation should be used when calculating the probability of censoring; most relevant in settings where the survival time of interest for the primary outcome is greater than the last observed event but before the last censored case, default is TRUE.
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -149,13 +151,13 @@ A list is returned:
 }
 \references{
 %% ~put references to the literature/web site here ~
-Parast L, Cai T and Tian L. Evaluating Surrogate Marker Information using Censored Data. Under Review.
+Parast, L., Cai, T., & Tian, L. (2017). Evaluating surrogate marker information using censored data. Statistics in Medicine, 36(11), 1767-1782.
 }
 \author{
 %%  ~~who you are~~
 Layla Parast
 }
-\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting". If the treatment effect is negative, the user will receive the following message: "Warning: it looks like you need to switch the treatment groups" as this package assumes throughout that larger values of the event time are better. If the observed support of the surrogate marker for the control group is outside the observed support of the surrogate marker for the treatment group, the user will receive the following message: "Warning: observed supports do not appear equal, may need to consider a transformation or extrapolation".}
+\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting". If the observed support of the surrogate marker for the control group is outside the observed support of the surrogate marker for the treatment group, the user will receive the following message: "Warning: observed supports do not appear equal, may need to consider a transformation or extrapolation".}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \examples{

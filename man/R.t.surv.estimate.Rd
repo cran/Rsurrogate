@@ -12,7 +12,7 @@ This function calculates the proportion of treatment effect on the primary outco
 }
 \usage{
 R.t.surv.estimate(xone, xzero, deltaone, deltazero, t, weight.perturb = NULL, 
-landmark, var = FALSE, conf.int = FALSE)
+landmark, var = FALSE, conf.int = FALSE, approx = T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -53,6 +53,9 @@ TRUE or FALSE; indicates whether a variance estimate for delta is requested, def
 %%     ~~Describe \code{var} here~~
 TRUE or FALSE; indicates whether a 95\% confidence interval for delta is requested, default is FALSE.
 }
+  \item{approx}{
+TRUE or FALSE indicating whether an approximation should be used when calculating the probability of censoring; most relevant in settings where the survival time of interest for the primary outcome is greater than the last observed event but before the last censored case, default is TRUE.
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -84,10 +87,10 @@ A list is returned:
 }
 \references{
 %% ~put references to the literature/web site here ~
-Parast L, Cai T and Tian L. Evaluating Surrogate Marker Information using Censored Data. Under Review.
+Parast, L., Cai, T., & Tian, L. (2017). Evaluating surrogate marker information using censored data. Statistics in Medicine, 36(11), 1767-1782.
 }
 
-\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting". If the treatment effect is negative, the user will receive the following message: "Warning: it looks like you need to switch the treatment groups" as this package assumes throughout that larger values of the event time are better.}
+\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting".}
 
 
 \author{

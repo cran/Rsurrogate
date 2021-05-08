@@ -13,7 +13,7 @@ This function calculates the robust estimate of the residual treatment effect ac
 }
 \usage{
 delta.t.surv.estimate(xone, xzero, deltaone, deltazero, t, weight.perturb = NULL,
-landmark)
+landmark, approx = T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -46,13 +46,16 @@ weights used for perturbation resampling.
 %%     ~~Describe \code{landmark} here~~
 the landmark time \eqn{t_0} or time of surrogate marker measurement.
 }
+  \item{approx}{
+TRUE or FALSE indicating whether an approximation should be used when calculating the probability of censoring; most relevant in settings where the survival time of interest for the primary outcome is greater than the last observed event but before the last censored case, default is TRUE.
+}
 }
 \details{
 	Details are included in the documentation for R.t.surv.estimate.
 }
 \references{
 %% ~put references to the literature/web site here ~
-Parast L, Cai T and Tian L. Evaluating Surrogate Marker Information using Censored Data. Under Review.
+Parast, L., Cai, T., & Tian, L. (2017). Evaluating surrogate marker information using censored data. Statistics in Medicine, 36(11), 1767-1782.
 }
 \value{
 %%  ~Describe the value returned
@@ -67,7 +70,7 @@ Parast L, Cai T and Tian L. Evaluating Surrogate Marker Information using Censor
 Layla Parast
 }
 
-\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting". If the treatment effect is negative, the user will receive the following message: "Warning: it looks like you need to switch the treatment groups" as this package assumes throughout that larger values of the event time are better.}
+\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting".}
 
 
 

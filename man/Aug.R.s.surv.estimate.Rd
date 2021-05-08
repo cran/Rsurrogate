@@ -12,7 +12,7 @@ This function calculates the augmented version of the proportion of treatment ef
 Aug.R.s.surv.estimate(xone, xzero, deltaone, deltazero, sone, szero, t, 
 weight.perturb = NULL, landmark, extrapolate = FALSE, transform = FALSE, 
 basis.delta.one, basis.delta.zero, basis.delta.s.one = NULL, 
-basis.delta.s.zero = NULL, incremental.value = FALSE)
+basis.delta.s.zero = NULL, incremental.value = FALSE, approx = T)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -78,6 +78,9 @@ either a vector of length \eqn{n_0} or a matrix with \eqn{n_0} rows; this is the
 %%     ~~Describe \code{var} here~~
 TRUE or FALSE; indicates whether the user would like to see the incremental value of the surrogate marker information, default is FALSE.
 }
+  \item{approx}{
+TRUE or FALSE indicating whether an approximation should be used when calculating the probability of censoring; most relevant in settings where the survival time of interest for the primary outcome is greater than the last observed event but before the last censored case, default is TRUE.
+}
 }
 \details{
 Please see R.s.surv.estimate documention for details about the estimates before augmentation is performed. Recent work has shown that augmentation can lead to improvements in efficiency by taking advantage of the association between baseline information, denoted here as \eqn{Z}, and the primary outcome. This function calculates the augmented estimates of the quantities of interest. For example, the augmented version of \eqn{ \hat{\Delta}(t)} is defined as:
@@ -86,7 +89,7 @@ where \eqn{Z_{gi}, i=1, 2, \cdots, n_g} are i.i.d. random vectors of baseline co
 \deqn{ \Xi_{12} = \mbox{cov}  \{ \hat{\Delta}(t), n_1^{-1}\sum_{i=1}^{n_1}h(Z_{1i})-n_0^{-1}\sum_{i=1}^{n_0}h(Z_{0i}) \},}
 \deqn{  \Xi_{22} = \mbox{var}  \{n_1^{-1}\sum_{i=1}^{n_1}h(Z_{1i})-n_0^{-1}\sum_{i=1}^{n_0}h(Z_{0i})\}}
 and thus we can obtain \eqn{\hat{\Delta}(t)^{AUG}} by replacing \eqn{\gamma} with a consistent estimator, \eqn{\hat{\gamma}} obtained using perturbation-resampling. A similar approach is used to obtain  \eqn{\hat{\Delta}_S(t)^{AUG}} and thus construct
-\deqn{\hat{R}_S(t,t_0)^{AUG}=1-\frac{\hat{\Delta}_S(t,t_0)^{AUG}}{\hat{\Delta}(t)^{AUG}}.}
+\deqn{\hat{R}_S(t,t_0)^{AUG}=1-\frac{\hat{\Delta}_S(t,t_0)^{AUG}}{\hat{\Delta}(t)^{AUG}}.} When only a single \eqn{Z_{gi}} is provided in the basis argument, the following basis is used in this function: \eqn{h(Z_{gi}) = (1, Z_{gi}, Z_{gi}^2)'.}
 
 }
 \value{
@@ -125,13 +128,13 @@ Garcia TP, Ma Y, Yin G. Efficiency improvement in a class of survival models thr
 
 Zhang M, Tsiatis AA, Davidian M. Improving efficiency of inferences in randomized clinical trials using auxiliary covariates. Biometrics 2008; 64(3): 707-715.
 
-Parast L, Cai T and Tian L. Evaluating Surrogate Marker Information using Censored Data. Under Review.
+Parast, L., Cai, T., & Tian, L. (2017). Evaluating surrogate marker information using censored data. Statistics in Medicine, 36(11), 1767-1782.
 
 }
 \author{
 Layla Parast
 }
-\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting". If the treatment effect is negative, the user will receive the following message: "Warning: it looks like you need to switch the treatment groups" as this package assumes throughout that larger values of the event time are better. If the observed support of the surrogate marker for the control group is outside the observed support of the surrogate marker for the treatment group, the user will receive the following message: "Warning: observed supports do not appear equal, may need to consider a transformation or extrapolation".
+\note{If the treatment effect is not significant, the user will receive the following message: "Warning: it looks like the treatment effect is not significant; may be difficult to interpret the residual treatment effect in this setting". If the observed support of the surrogate marker for the control group is outside the observed support of the surrogate marker for the treatment group, the user will receive the following message: "Warning: observed supports do not appear equal, may need to consider a transformation or extrapolation".
 }
 \examples{
 #computationally intensive
